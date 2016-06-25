@@ -108,8 +108,10 @@ def check_intercept(obj, obj2):
     return intersect, ipoints
 
 
-obj = bpy.context.object
-obj2 = (ob for ob in bpy.context.selected_objects if ob != obj).__next__()
-intersect, points = check_intercept(obj, obj2)
+def check_selected():
+    obj = bpy.context.object
+    obj2 = (ob for ob in bpy.context.selected_objects if ob != obj).__next__()
+    intersect, points = check_intercept(obj, obj2)
 
-print("There are%s intersections." % ("" if intersect else " NO"))
+    print("There are%s intersections." % ("" if intersect else " NO"))
+    return points

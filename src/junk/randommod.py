@@ -21,3 +21,7 @@ for face in faces:
 
 bm.to_mesh(me)
 me.update()
+
+def transout(dist):
+    for face in [f for f in bm.faces if f.select]:
+            bmesh.ops.translate(bm, vec=face.normal * (dist), verts = face.verts[:])

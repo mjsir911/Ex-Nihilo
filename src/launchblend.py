@@ -1,7 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-from . import chintersect, geomanipulate
+import os
+import sys
+try:
+    from . import *
+except SystemError:
+    pass
 
 __appname__    = "Ex-Nihilo"
 __author__     = "Marco Sirabella"
@@ -14,3 +19,4 @@ __email__      = "msirael@gmail.com"
 __status__     = "Prototype"
 __module__     = ""
 
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(os.path.dirname(__file__)))))

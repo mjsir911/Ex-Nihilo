@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-from . import chintersect, geomanipulate
-
 __appname__    = "Ex-Nihilo"
 __author__     = "Marco Sirabella"
 __copyright__  = ""
@@ -14,3 +12,11 @@ __email__      = "msirael@gmail.com"
 __status__     = "Prototype"
 __module__     = ""
 
+def generate(
+    start_revolution = None,
+    orbital_distortion = 250,
+    planet_name = 'planet',
+    ):
+    if start_revolution is None:
+        start_revolution = random.randint(0, 99)
+    core, orbit = metagen(planet_name, start_revolution, orbital_distortion)

@@ -120,7 +120,7 @@ def check_intercept(obj, obj2):
 
 
 def check_selected():
-    obj = bpy.context.object
+    obj = bpy.context.selected_objects[0]
     obj2 = (ob for ob in bpy.context.selected_objects if ob != obj).__next__()
     intersect, points = check_intercept(obj, obj2)
 

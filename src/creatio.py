@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-from . import chintersect, geomanipulate
+from planets.terrestrial import terplanet
 
 __appname__    = "Ex-Nihilo"
 __author__     = "Marco Sirabella"
@@ -13,4 +13,5 @@ __maintainer__ = "Marco Sirabella"
 __email__      = "msirael@gmail.com"
 __status__     = "Prototype"
 __module__     = ""
+
 

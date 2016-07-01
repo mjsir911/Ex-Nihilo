@@ -3,7 +3,7 @@
 
 import bpy
 import bmesh
-import edits
+from . import edits
 
 __appname__    = "Ex-Nihilo"
 __author__     = "Marco Sirabella"

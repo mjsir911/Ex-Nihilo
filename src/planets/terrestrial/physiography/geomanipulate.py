@@ -7,15 +7,8 @@ import mathutils
 import sys
 import os
 import random
-#from ....misc import shapes
-
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname('../../../misc'))))
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname('.'))))
-
-from shapes import ico_create, materialize
-import chintersect
-import edits
-check_selected = chintersect.check_selected
+from ....misc import shapes,edits
+from . import chintersect
 
 __appname__    = "Ex-Nihilo"
 __author__     = "Marco Sirabella"
@@ -29,7 +22,7 @@ __status__     = "Prototype"
 __module__     = ""
 
 def mantle_create(name, size = 1, resolution = 6):
-    obj = materialize(name, ico_create(resolution, size))
+    obj = shapes.materialize(name, shapes.ico_create(resolution, size))
     return obj
 
 def database(obj):

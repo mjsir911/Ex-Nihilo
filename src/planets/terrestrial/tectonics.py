@@ -6,12 +6,12 @@ import bpy
 import sys
 import os
 #from ..icomod import selectrand, radrange, circlyness, erode
-#from ....misc import edits
+from ...misc import edits, selection
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname('../../../misc'))))
+#sys.path.append(os.path.abspath(os.path.join(os.path.dirname('../../../misc'))))
 
-from edits import edit_in, edit_out
-from selection import selectrand, radrange, circlyness
+#from edits import edit_in, edit_out
+#from selection import selectrand, radrange, circlyness
 
 __appname__    = "Ex-Nihilo"
 __author__     = "Marco Sirabella"
@@ -43,11 +43,11 @@ def generate(bm, me, expanse = 1/6, size = 5):
         bm.faces.ensure_lookup_table()
         center = bm.faces[random.randrange(len(bm.faces))]
         center.select = True
-        selectrand(bm, me, random.random()*size * 2, expanse)
+        selection.selectrand(bm, me, random.random()*size * 2, expanse)
         centerpoint = center.verts[random.randrange(len(center.verts[:]))]
         #print(radrange(centerpoint))
         #print(y)
-        if radrange(bm, centerpoint) > 0.4 and circlyness(bm) < expanse * 1.5:
+        if selection.radrange(bm, centerpoint) > 0.4 and selection.circlyness(bm) < expanse * 1.5:
         #if len([f for f in bm.faces if f.select]) > size* 5:
         #print(centercoords)
             bpy.ops.mesh.separate(type='SELECTED')
@@ -66,7 +66,7 @@ def generate(bm, me, expanse = 1/6, size = 5):
     c_after = []
     c_after.append(bpy.data.objects[:])
     continents = [item for item in c_after[0] if item not in c_before[0]]
-    edit_out()
+    edits.edit_out()
     erode(continents, size)
     continents.insert(0, obj)
     for cont in continents:
@@ -112,7 +112,7 @@ def generate(bm, me, expanse = 1/6, size = 5):
     #bpy.ops.object.parent_set()
     return continents
 
-def continent_drift(age):
+def drift(age):
     """for cont in continents:
         obj = bpy.data.objects[cont.name]
         obj.scale[0] = random.randrange(75, 125, 5) / 100

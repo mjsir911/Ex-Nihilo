@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-from . import chintersect, geomanipulate
+from . import misc, physics, planets, stars
 
 __appname__    = "Ex-Nihilo"
 __author__     = "Marco Sirabella"

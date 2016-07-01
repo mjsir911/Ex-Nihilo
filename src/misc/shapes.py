@@ -3,6 +3,7 @@
 
 import bpy
 import bmesh
+import edits
 
 __appname__    = ""
 __author__     = "Marco Sirabella"
@@ -26,7 +27,7 @@ def ico_create(sub, dia):
     bm.faces.ensure_lookup_table()
     scene = bpy.context.scene
     return bm
-    
+
 def materialize(name, bm):
     scene = bpy.context.scene
     me = bpy.data.meshes.new(name)
@@ -38,8 +39,8 @@ def materialize(name, bm):
 
 def autogen(name, size = 6):
     materialize(name, ico_create(size, 1))
-    edit_in(name)
-    
+    edits.edit_in(name)
+
 def group(object_list):
     for obj in object_list:
         obj.select = True

@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import random
+import bisect
 
 __appname__    = "Custom functions built off of random"
 __author__     = "Marco Sirabella"
@@ -15,15 +16,18 @@ __status__     = "Prototype"  # "Prototype", "Development" or "Production"
 __module__     = ""
 
 """
-Thanks to Ned Batchelder and moooeeeep from stackoverflow for this
+Thanks to Raymond Hettinger and Lev Levitsky from stackoverflow for this
 http://stackoverflow.com/questions/3679694/a-weighted-version-of-random-choice
 """
 def weighted_choice(choices):
-   total = sum(w for c, w in choices)
-   r = random.uniform(0, total)
-   upto = 0
-   for c, w in choices:
-      upto += w
-      if upto + w >= r:
-         return c
-   assert False, "Shouldn't get here"
+    #import random
+    #import bisect
+    values, weights = zip(*choices)
+    total = 0
+    cweights = []
+    for w in weights:
+        total += w
+        cweights.append(total)
+    x = random.random() * total
+    i = bisect.bisect(cweights, x)
+    return values[i]

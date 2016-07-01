@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-from ...misc import edits
+
 __appname__    = ""
 __author__     = "Marco Sirabella"
 __copyright__  = ""
@@ -12,3 +12,7 @@ __email__      = "msirabel@gmail.com"
 __status__     = "Prototype"  # "Prototype", "Development" or "Production"
 __module__     = ""
 
+def f7(seq):
+    seen = set()
+    seen_add = seen.add
+    return [x for x in seq if not (x in seen or seen_add(x))]

@@ -14,18 +14,18 @@ from edits import edit_in, edit_out
 from selection import selectrand, radrange, circlyness
 
 
-__appname__    = ""
+__appname__    = "Ex-Nihilo"
 __author__     = "Marco Sirabella"
 __copyright__  = ""
-__credits__    = ["Marco Sirabella"]  # Authors and bug reporters
-__license__    = "GPL"
-__version__    = "1.0"
+__credits__    = ["Marco Sirabella"]
+__license__    = "GPL 3.0"
+__version__    = "0.3"
 __maintainer__ = "Marco Sirabella"
-__email__      = "msirabel@gmail.com"
-__status__     = "Prototype"  # "Prototype", "Development" or "Production"
+__email__      = "msirael@gmail.com"
+__status__     = "Prototype"
 __module__     = ""
 
-def generate_tectonic_plates(bm, me, expanse = 1/6, size = 5):
+def generate(bm, me, expanse = 1/6, size = 5):
     import random
     import math
     expanse = 1- expanse
@@ -71,7 +71,7 @@ def generate_tectonic_plates(bm, me, expanse = 1/6, size = 5):
     erode(continents, size)
     continents.insert(0, obj)
     for cont in continents:
-        
+
         """
         #Categorize under original object
         print('parent = ' + obj.name)
@@ -84,24 +84,24 @@ def generate_tectonic_plates(bm, me, expanse = 1/6, size = 5):
         for face in bm.faces:
             face.select = True
         transout(0.02)"""
-        
+
         #Smooth the plates(shrink a bit)
         cont.modifiers.new('Smooth', 'SMOOTH')
         cont.modifiers['Smooth'].factor = 2
         cont.modifiers['Smooth'].iterations = 2
-        
+
         #Porbably add solidify with th* of 0.2 and cla of 0
         cont.modifiers.new('Solidify', 'SOLIDIFY')
         cont.modifiers['Solidify'].thickness = 0.05
-        
+
         #edit_out()
-        
+
         #recalc centerpoint to center of mass
         cont.select = True
     #print('recalc com')
     bpy.ops.object.origin_set(type='ORIGIN_CENTER_OF_MASS')
     obj.select = False
-        
+
     #Scale by 1.1
     for cont in continents:
         #print('spam')
@@ -121,8 +121,8 @@ def continent_drift(age):
         obj.scale[2] = random.randrange(75, 125, 5) / 100"""
 
 def erode(list, size):
-    for item in bpy.context.selectable_objects:  
-        item.select = False 
+    for item in bpy.context.selectable_objects:
+        item.select = False
     for conts in list:
         if len(conts.data.vertices) < size:
             conts.select = True

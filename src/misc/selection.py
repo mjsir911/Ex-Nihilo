@@ -5,15 +5,15 @@ import bpy
 import bmesh
 import random
 
-__appname__    = ""
+__appname__    = "Ex-Nihilo"
 __author__     = "Marco Sirabella"
 __copyright__  = ""
-__credits__    = ["Marco Sirabella"]  # Authors and bug reporters
-__license__    = "GPL"
-__version__    = "1.0"
+__credits__    = "Marco Sirabella"
+__license__    = "GPL 3.0"
+__version__    = "0.3"
 __maintainer__ = "Marco Sirabella"
-__email__      = "msirabel@gmail.com"
-__status__     = "Prototype"  # "Prototype", "Development" or "Production"
+__email__      = "msirael@gmail.com"
+__status__     = "Prototype"
 __module__     = ""
 
 def selectrand(bm, me, num, expanse):
@@ -58,7 +58,7 @@ def radrange(bm, pointp):
     #print(numpy.subtract(point.co[0], points0[len(points0)-1]))
     #print(numpy.subtract(point.co[0], points0[0]))
     #print(numpy.subtract(point.co[1], pointas1[len(points1)-1]))
-    #print(numpy.subtract(point.co[1], points1[0]))    
+    #print(numpy.subtract(point.co[1], points1[0]))
     #print(numpy.subtract(point.co[2], points2[len(points2)-1]))
     #print(numpy.subtract(point.co[2], points2[0]))
     y = numpy.mean([
@@ -71,7 +71,7 @@ def radrange(bm, pointp):
     #points.append(numpy.std(points1))
     #points.append(numpy.std(points2))
     #print(numpy.mean(points))
-    
+
 def orgpoints():
     points = []
     pointsx = []

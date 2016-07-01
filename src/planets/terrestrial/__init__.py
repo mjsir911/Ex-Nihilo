@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-from . import physiography, tectonics, terplanet
+from . import physiography, tectonics
 from ...misc import shapes, edits
 
 __appname__    = "Ex-Nihilo"

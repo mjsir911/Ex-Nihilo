@@ -19,11 +19,22 @@ from shapes import ico_create, materialize, group, autogen
 from bodies import metagen
 from lists import *
 import geomanipulate
-            
+
+__appname__    = "Ex-Nihilo"
+__author__     = "Marco Sirabella"
+__copyright__  = ""
+__credits__    = ["Marco Sirabella"]  # Authors and bug reporters
+__license__    = "GPL 3.0"
+__version__    = "0.1.0"
+__maintainer__ = "Marco Sirabella"
+__email__      = "msirael@gmail.com"
+__status__     = "Prototype"
+__module__     = ""
+
 def mountaingen():
     pass
     #build modifier to randomly get faces from sphere
-    
+
 def planet_gen(
     seed = '',
     start_revolution = None,
@@ -49,7 +60,7 @@ def planet_gen(
     continents = tectgen(bm, me, expanse = continent_roundness, size = continent_size)
     continent_drift(planet_age)
     group(continents)
-    
+
     #Geography time
     obj = geomanipulate.mantle_create('{0}_mantle'.format(planet_name), size = tectonic_size * (4/3), resolution = resolution)
     kd = geomanipulate.database(obj)

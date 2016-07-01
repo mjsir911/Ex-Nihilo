@@ -5,6 +5,17 @@ from numpy import mean
 
 #http://blender.stackexchange.com/questions/9073/how-to-check-if-two-meshes-intersect-in-python
 
+__appname__    = "Ex-Nihilo"
+__author__     = "Marco Sirabella"
+__copyright__  = ""
+__credits__    = ["Marco Sirabella"]  # Authors and bug reporters
+__license__    = "GPL 3.0"
+__version__    = "0.1.0"
+__maintainer__ = "Marco Sirabella"
+__email__      = "msirael@gmail.com"
+__status__     = "Prototype"
+__module__     = ""
+
 def bmesh_copy_from_object(obj, transform=True, triangulate=True, apply_modifiers=False):
     """
     Returns a transformed, triangulated copy of the mesh

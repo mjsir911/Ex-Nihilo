@@ -13,13 +13,12 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname('../../../misc'))))
 from edits import edit_in, edit_out
 from selection import selectrand, radrange, circlyness
 
-
 __appname__    = "Ex-Nihilo"
 __author__     = "Marco Sirabella"
 __copyright__  = ""
 __credits__    = ["Marco Sirabella"]
 __license__    = "GPL 3.0"
-__version__    = "0.3"
+__version__    = "0.1.0"
 __maintainer__ = "Marco Sirabella"
 __email__      = "msirael@gmail.com"
 __status__     = "Prototype"

@@ -17,15 +17,15 @@ import chintersect
 import edits
 check_selected = chintersect.check_selected
 
-__appname__    = ""
+__appname__    = "Ex-Nihilo"
 __author__     = "Marco Sirabella"
 __copyright__  = ""
 __credits__    = ["Marco Sirabella"]  # Authors and bug reporters
-__license__    = "GPL"
-__version__    = "1.0"
+__license__    = "GPL 3.0"
+__version__    = "0.1.0"
 __maintainer__ = "Marco Sirabella"
-__email__      = "msirabel@gmail.com"
-__status__     = "Prototype"  # "Prototype", "Development" or "Production"
+__email__      = "msirael@gmail.com"
+__status__     = "Prototype"
 __module__     = ""
 
 def mantle_create(name, size = 1, resolution = 6):
@@ -38,14 +38,14 @@ def database(obj):
     for vert in obj.data.vertices:
         database.append(vert.co)
     return database"""
-    
+
     mesh = obj.data
     size = len(mesh.vertices)
     kd = mathutils.kdtree.KDTree(size)
-    
+
     for i, v in enumerate(mesh.vertices):
         kd.insert(v.co, i)
-    
+
     kd.balance()
     return kd
 
@@ -72,7 +72,7 @@ def find_cpoints(obj, kd, opoints):
         points.append(obj.data.vertices[index])
         indexpoints.append(index)
     return points, indexpoints
-        
+
 def rise(obj, point_indexes):
     bm, me = edits.edit_in(obj.name)
     bm.verts.ensure_lookup_table()

@@ -8,7 +8,7 @@ __author__     = "Marco Sirabella"
 __copyright__  = ""
 __credits__    = ["Marco Sirabella"]  # Authors and bug reporters
 __license__    = "GPL 3.0"
-__version__    = "0.1.0"
+__version__    = "0.2.0"
 __maintainer__ = "Marco Sirabella"
 __email__      = "msirael@gmail.com"
 __status__     = "Prototype"
@@ -27,12 +27,13 @@ for face in faces:
         new_face = new_faces[0]
         bmesh.ops.translate(bm, vec=new_face.normal * (1), verts=new_face.verts)
 
-#for v in bm.verts:
+# for v in bm.verts:
 #    bmesh.ops.remove_doubles(bm, verts=bm.verts , dist=random())
 
 bm.to_mesh(me)
 me.update()
 
+
 def transout(dist):
     for face in [f for f in bm.faces if f.select]:
-            bmesh.ops.translate(bm, vec=face.normal * (dist), verts = face.verts[:])
+            bmesh.ops.translate(bm, vec=face.normal * (dist), verts=face.verts[:])

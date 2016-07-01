@@ -7,7 +7,7 @@ import mathutils
 import sys
 import os
 import random
-from ....misc import shapes,edits
+from ....misc import shapes, edits
 from . import chintersect
 
 __appname__    = "Ex-Nihilo"
@@ -15,15 +15,17 @@ __author__     = "Marco Sirabella"
 __copyright__  = ""
 __credits__    = ["Marco Sirabella"]  # Authors and bug reporters
 __license__    = "GPL 3.0"
-__version__    = "0.1.0"
+__version__    = "0.2.0"
 __maintainer__ = "Marco Sirabella"
 __email__      = "msirael@gmail.com"
 __status__     = "Prototype"
 __module__     = ""
 
-def mantle_create(name, size = 1, resolution = 6):
+
+def mantle_create(name, size=1, resolution=6):
     obj = shapes.materialize(name, shapes.ico_create(resolution, size))
     return obj
+
 
 def database(obj):
     """
@@ -42,6 +44,7 @@ def database(obj):
     kd.balance()
     return kd
 
+
 def detect_overlap_masse(clist):
     dlist = list(clist)
     points = []
@@ -57,6 +60,7 @@ def detect_overlap_masse(clist):
         obj.select = False
     return points
 
+
 def find_cpoints(obj, kd, opoints):
     points = []
     indexpoints = []
@@ -66,10 +70,11 @@ def find_cpoints(obj, kd, opoints):
         indexpoints.append(index)
     return points, indexpoints
 
+
 def rise(obj, point_indexes):
     bm, me = edits.edit_in(obj.name)
     bm.verts.ensure_lookup_table()
     for index in point_indexes:
         multiplier = random.random() * 0.1
-        bmesh.ops.translate(bm, vec = bm.verts[index].normal * multiplier, verts = [bm.verts[index]])
+        bmesh.ops.translate(bm, vec=bm.verts[index].normal * multiplier, verts=[bm.verts[index]])
     edits.edit_out()

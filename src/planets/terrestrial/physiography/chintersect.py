@@ -3,18 +3,19 @@ import bmesh
 import mathutils
 from numpy import mean
 
-#http://blender.stackexchange.com/questions/9073/how-to-check-if-two-meshes-intersect-in-python
+# http://blender.stackexchange.com/questions/9073/how-to-check-if-two-meshes-intersect-in-python
 
 __appname__    = "Ex-Nihilo"
 __author__     = "Marco Sirabella"
 __copyright__  = ""
 __credits__    = ["Marco Sirabella"]  # Authors and bug reporters
 __license__    = "GPL 3.0"
-__version__    = "0.1.0"
+__version__    = "0.2.0"
 __maintainer__ = "Marco Sirabella"
 __email__      = "msirael@gmail.com"
 __status__     = "Prototype"
 __module__     = ""
+
 
 def bmesh_copy_from_object(obj, transform=True, triangulate=True, apply_modifiers=False):
     """
@@ -53,9 +54,10 @@ def bmesh_copy_from_object(obj, transform=True, triangulate=True, apply_modifier
 
     return bm
 
+
 def check_intercept(obj, obj2):
     from mathutils import Vector
-    #print(Vector)
+    # print(Vector)
     """
     Check if any faces intersect with the other object
 
@@ -89,9 +91,9 @@ def check_intercept(obj, obj2):
 
     ipoints = []
 
-    #for ed in me_tmp.edges:
+    # for ed in me_tmp.edges:
     for ed in bm.edges:
-        #print('test')
+        # print('test')
         v1, v2 = ed.verts
 
         # setup the edge with an offset
@@ -102,13 +104,13 @@ def check_intercept(obj, obj2):
         co_1 = co_1.lerp(co_mid, EPS_CENTER) + no_mid
         co_2 = co_2.lerp(co_mid, EPS_CENTER) + no_mid
 
-        #print("co_1 is ", co_1)
-        #print("co_2 is ", co_2)
+        # print("co_1 is ", co_1)
+        # print("co_2 is ", co_2)
         false, co, no, index = ray_cast(co_1, co_2)
         if index != -1:
             intersect = True
             ipoints.append(Vector((mean([co_1[0], co_2[0]]), mean([co_1[1], co_2[1]]), mean([co_1[2], co_2[2]]))))
-            #break
+            # break
 
     scene.objects.unlink(obj_tmp)
     bpy.data.objects.remove(obj_tmp)

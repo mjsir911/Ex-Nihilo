@@ -4,16 +4,17 @@
 import bmesh
 import bpy
 
-__appname__    = ""
+__appname__    = "Ex-Nihilo"
 __author__     = "Marco Sirabella"
 __copyright__  = ""
 __credits__    = ["Marco Sirabella"]  # Authors and bug reporters
-__license__    = "GPL"
-__version__    = "1.0"
+__license__    = "GPL 3.0"
+__version__    = "0.2.0"
 __maintainer__ = "Marco Sirabella"
-__email__      = "msirabel@gmail.com"
-__status__     = "Prototype"  # "Prototype", "Development" or "Production"
+__email__      = "msirael@gmail.com"
+__status__     = "Prototype"
 __module__     = ""
+
 
 def edit_in(sname=''):
     if sname:
@@ -37,11 +38,14 @@ def edit_in(sname=''):
 #    for v in bm.verts:
 #        v.co.x += 1.0
     return bm
+
+
 def edit_out():
     scene = bpy.context.scene
     bpy.ops.object.mode_set(mode='OBJECT')
     scene.objects.active = None
-    
+
+
 def edit_tog(name):
     if bpy.context.mode == 'OBJECT':
         scene = bpy.context.scene

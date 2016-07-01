@@ -5,63 +5,64 @@ import bmesh
 import bpy
 import sys
 import os
-#from ..icomod import selectrand, radrange, circlyness, erode
+# from ..icomod import selectrand, radrange, circlyness, erode
 from ...misc import edits, selection
 
-#sys.path.append(os.path.abspath(os.path.join(os.path.dirname('../../../misc'))))
+# sys.path.append(os.path.abspath(os.path.join(os.path.dirname('../../../misc'))))
 
-#from edits import edit_in, edit_out
-#from selection import selectrand, radrange, circlyness
+# from edits import edit_in, edit_out
+# from selection import selectrand, radrange, circlyness
 
 __appname__    = "Ex-Nihilo"
 __author__     = "Marco Sirabella"
 __copyright__  = ""
 __credits__    = ["Marco Sirabella"]
 __license__    = "GPL 3.0"
-__version__    = "0.1.0"
+__version__    = "0.2.0"
 __maintainer__ = "Marco Sirabella"
 __email__      = "msirael@gmail.com"
 __status__     = "Prototype"
 __module__     = ""
 
-def generate(bm, me, expanse = 1/6, size = 5):
+
+def generate(bm, me, expanse=1 / 6, size=5):
     import random
     import math
-    expanse = 1- expanse
+    expanse = 1 - expanse
     size = (10 - size) * 50
-    res = math.log(len(bm.faces)/20, 4) + 1
+    res = math.log(len(bm.faces) / 20, 4) + 1
     obj = bpy.context.edit_object
     print(obj.name)
     continents = []
-    size = len(bm.faces)/(size * (4 ** (res - 6)))
+    size = len(bm.faces) / (size * (4 ** (res - 6)))
     print(size)
     x = False
-    #x = 1
+    # x = 1
     c_before = []
     c_before.append(bpy.data.objects[:])
     while len(bm.faces) > 1000:
         bm.faces.ensure_lookup_table()
         center = bm.faces[random.randrange(len(bm.faces))]
         center.select = True
-        selection.selectrand(bm, me, random.random()*size * 2, expanse)
+        selection.selectrand(bm, me, random.random() * size * 2, expanse)
         centerpoint = center.verts[random.randrange(len(center.verts[:]))]
-        #print(radrange(centerpoint))
-        #print(y)
+        # print(radrange(centerpoint))
+        # print(y)
+        # if len([f for f in bm.faces if f.select]) > size* 5:
         if selection.radrange(bm, centerpoint) > 0.4 and selection.circlyness(bm) < expanse * 1.5:
-        #if len([f for f in bm.faces if f.select]) > size* 5:
-        #print(centercoords)
+            # print(centercoords)
             bpy.ops.mesh.separate(type='SELECTED')
-            #print('good')
-            #x = x+1
-            #x+=1
+            # print('good')
+            # x = x+1
+            # x+=1
             if x:
                 break
         else:
-            bpy.ops.mesh.select_all(action = 'DESELECT')
-            #print('too bad')
+            bpy.ops.mesh.select_all(action='DESELECT')
+            # print('too bad')
         bmesh.update_edit_mesh(me, True)
         me.update()
-    #print(len(bm.faces))
+    # print(len(bm.faces))
     bpy.ops.mesh.separate(type='LOOSE')
     c_after = []
     c_after.append(bpy.data.objects[:])
@@ -84,33 +85,34 @@ def generate(bm, me, expanse = 1/6, size = 5):
             face.select = True
         transout(0.02)"""
 
-        #Smooth the plates(shrink a bit)
+        # Smooth the plates(shrink a bit)
         cont.modifiers.new('Smooth', 'SMOOTH')
         cont.modifiers['Smooth'].factor = 2
         cont.modifiers['Smooth'].iterations = 2
 
-        #Porbably add solidify with th* of 0.2 and cla of 0
+        # Porbably add solidify with th* of 0.2 and cla of 0
         cont.modifiers.new('Solidify', 'SOLIDIFY')
         cont.modifiers['Solidify'].thickness = 0.05
 
-        #edit_out()
+        # edit_out()
 
-        #recalc centerpoint to center of mass
+        # recalc centerpoint to center of mass
         cont.select = True
-    #print('recalc com')
+    # print('recalc com')
     bpy.ops.object.origin_set(type='ORIGIN_CENTER_OF_MASS')
     obj.select = False
 
-    #Scale by 1.1
+    # Scale by 1.1
     for cont in continents:
-        #print('spam')
+        # print('spam')
         obj = cont
-        scale = random.randint(10500, 11500)/10000
+        scale = random.randint(10500, 11500) / 10000
         obj.scale = (scale, scale, scale)
-    #print(len(continents))
-    #continents[0].select = True
-    #bpy.ops.object.parent_set()
+    # print(len(continents))
+    # continents[0].select = True
+    # bpy.ops.object.parent_set()
     return continents
+
 
 def drift(age):
     """for cont in continents:
@@ -118,6 +120,7 @@ def drift(age):
         obj.scale[0] = random.randrange(75, 125, 5) / 100
         obj.scale[1] = random.randrange(75, 125, 5) / 100
         obj.scale[2] = random.randrange(75, 125, 5) / 100"""
+
 
 def erode(list, size):
     for item in bpy.context.selectable_objects:
@@ -127,4 +130,4 @@ def erode(list, size):
             conts.select = True
             list.remove(conts)
             bpy.ops.object.delete()
-            #print(conts.name)
+            # print(conts.name)

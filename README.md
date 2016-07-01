@@ -1,6 +1,6 @@
 # Ex-Nihilo
 
-One Paragraph of project description goes here
+**Ex Nihilo** is an open source software library for procedurally generating star systems and the planets inside using randomly generated seeds or a user-defined seed. 
 
 ## Getting Started
 
@@ -8,11 +8,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisities
 
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
+To run the scripts, [Blender][www.blender.org] has to be installed and working properly. Extremely minimal knowledge in blender is required to get scripts up and running.
 
 ### Installing
 

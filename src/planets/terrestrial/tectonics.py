@@ -25,7 +25,7 @@ __status__     = "Prototype"
 __module__     = ""
 
 
-def generate(bm, me, expanse=1 / 6, size=5):
+def generate(bm, me, expanse=1 / 6, size=5, randomrange=0.10):
     import random
     import math
     expanse = 1 - expanse
@@ -70,51 +70,22 @@ def generate(bm, me, expanse=1 / 6, size=5):
     edits.edit_out()
     erode(continents, size)
     continents.insert(0, obj)
-    for cont in continents:
-
-        """
-        #Categorize under original object
-        print('parent = ' + obj.name)
-        print('child = ' + cont.name)
-        bpy.ops.outliner.parent_drop(child = cont.name, parent = obj.name)
-        """
-        """
-        edit_in(cont.name)
-        move each plate out 0.02-- replaced by smooth
-        for face in bm.faces:
-            face.select = True
-        transout(0.02)"""
-
-        # Smooth the plates(shrink a bit)
-        cont.modifiers.new('Smooth', 'SMOOTH')
-        cont.modifiers['Smooth'].factor = 2
-        cont.modifiers['Smooth'].iterations = 2
-
-        # Porbably add solidify with th* of 0.2 and cla of 0
-        cont.modifiers.new('Solidify', 'SOLIDIFY')
-        cont.modifiers['Solidify'].thickness = 0.05
-
-        # edit_out()
-
-        # recalc centerpoint to center of mass
-        cont.select = True
-    # print('recalc com')
-    bpy.ops.object.origin_set(type='ORIGIN_CENTER_OF_MASS')
-    obj.select = False
-
-    # Scale by 1.1
-    for cont in continents:
-        # print('spam')
-        obj = cont
-        scale = random.randint(10500, 11500) / 10000
-        obj.scale = (scale, scale, scale)
     # print(len(continents))
     # continents[0].select = True
     # bpy.ops.object.parent_set()
+    drift(1, continents)
+    rescale(continents, randomrange)
     return continents
 
 
-def drift(age):
+def drift(age, list):
+    from random import uniform
+    from math import radians
+    for item in list:
+        item.rotation_euler =\
+            radians(uniform(-1, 1) * age),\
+            radians(uniform(-3, 3) * age),\
+            radians(uniform(-3, 3) * age)
     """for cont in continents:
         obj = bpy.data.objects[cont.name]
         obj.scale[0] = random.randrange(75, 125, 5) / 100
@@ -131,3 +102,48 @@ def erode(list, size):
             list.remove(conts)
             bpy.ops.object.delete()
             # print(conts.name)
+
+
+def rescale(list, randomrange):
+    import random
+    bpy.ops.object.select_all(action='DESELECT')
+    for item in list:
+
+        """
+        #Categorize under original object
+        print('parent = ' + obj.name)
+        print('child = ' + cont.name)
+        bpy.ops.outliner.parent_drop(child = cont.name, parent = obj.name)
+        """
+        """
+        edit_in(cont.name)
+        move each plate out 0.02-- replaced by smooth
+        for face in bm.faces:
+            face.select = True
+        transout(0.02)"""
+
+        # Smooth the plates(shrink a bit)
+        item.modifiers.new('Smooth', 'SMOOTH')
+        item.modifiers['Smooth'].factor = 2
+        item.modifiers['Smooth'].iterations = 2
+
+        # Porbably add solidify with th* of 0.2 and cla of 0
+        item.modifiers.new('Solidify', 'SOLIDIFY')
+        item.modifiers['Solidify'].thickness = 0.05
+
+        # edit_out()
+
+        # recalc centerpoint to center of mass
+        item.select = True
+        bpy.context.scene.objects.active = item
+        bpy.ops.object.modifier_apply(apply_as='DATA', modifier='Smooth')
+        bpy.ops.object.modifier_apply(apply_as='DATA', modifier='Solidify')
+    # print('recalc com')
+    bpy.ops.object.origin_set(type='ORIGIN_CENTER_OF_MASS')
+    bpy.ops.object.select_all(action='DESELECT')
+
+    # Scale by 1.1
+    for item in list:
+        # print('spam')
+        scale = random.uniform(1.05, 1.05 + randomrange)
+        item.scale = (scale, scale, scale)

@@ -36,7 +36,6 @@ def generate(
     bm, me = edits.edit_in('{0}_tectplates'.format(planet_name))
     # print(bm)
     continents = tectonics.generate(bm, me, expanse=continent_roundness, size=continent_size)
-    tectonics.drift(planet_age)
     # group(continents)
 
     # Geography time

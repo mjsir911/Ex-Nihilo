@@ -12,12 +12,12 @@ To run the scripts, [Blender][www.blender.org] has to be installed and working p
 
 ### Installing
 
-A step by step series of examples that tell you have to get a development env running
+To procure a running developmental environment, clone the latest stable branch from the git repository.
 
-Stay what the step will be
+Once the git repository has been cloned and located, and blender has been installed, you must run blender to automatically run a python file ([launchblend.py][src/launchblend.py]). This is typically done with the blender command, but depending on your software may be subject to change
 
 ```
-Give the example
+blender -P /path/to/repo/src/launchblend.py
 ```
 
 And repeat

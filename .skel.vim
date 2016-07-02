@@ -4,7 +4,7 @@ let dVars = {
  \"author" : name, 
  \"copyright" : "", 
  \"license" : "GPL 3.0", 
- \"version" : "0.2.1", 
+ \"version" : "0.3.0", 
  \"maintainer" : name,
  \"email" : 'msirael@gmail.com', 
  \"status" : "Prototype", 

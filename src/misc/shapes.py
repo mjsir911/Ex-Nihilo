@@ -3,6 +3,7 @@
 
 import bpy
 import bmesh
+import math
 from . import edits
 
 __appname__    = "Ex-Nihilo"
@@ -10,7 +11,7 @@ __author__     = "Marco Sirabella"
 __copyright__  = ""
 __credits__    = ["Marco Sirabella"]  # Authors and bug reporters
 __license__    = "GPL 3.0"
-__version__    = "0.2.0"
+__version__    = "0.2.1"
 __maintainer__ = "Marco Sirabella"
 __email__      = "msirael@gmail.com"
 __status__     = "Prototype"
@@ -50,3 +51,38 @@ def group(object_list):
         obj.select = True
     bpy.context.scene.objects.active = bpy.data.objects[object_list[0].name]
     bpy.ops.object.parent_set()
+
+"""
+Thanks to Mutant Bob
+http://blender.stackexchange.com/questions/53983/get-points-of-bezier-curve-in-coordinate-space-of-the-scene
+"""
+
+
+def interpBez3(bp0, t, bp3):
+    # bp1, HR, HL, bp2
+
+    return interpBez3_(bp0.co, bp0.handle_right, bp3.handle_left, bp3.co, t)
+#    return interpBez3_(bp0.co, bp0.handle_left, bp3.handle_right, bp3.co, t)
+
+
+def interpBez3_(p0, p1, p2, p3, t):
+    r = 1-t
+    return (r*r*r*p0 +
+            3*r*r*t*p1 +
+            3*r*t*t*p2 +
+            t*t*t*p3)
+
+
+def mission1(obj, t):
+
+    i1 = math.floor(t)
+
+    curve = obj.data
+
+
+    bp1 = curve.splines[0].bezier_points[i1]
+    bp2 = curve.splines[0].bezier_points[i1+1]
+
+    coords = obj.matrix_world * interpBez3(bp1, t-i1, bp2)
+
+    return coords

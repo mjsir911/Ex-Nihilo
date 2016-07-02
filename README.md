@@ -8,13 +8,13 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisities
 
-To run the scripts, [Blender][www.blender.org] has to be installed and working properly. Extremely minimal knowledge in blender is required to get scripts up and running.
+To run the scripts, [Blender](www.blender.org) has to be installed and working properly. Extremely minimal knowledge in blender is required to get scripts up and running.
 
 ### Installing
 
 To procure a running developmental environment, clone the latest stable branch from the git repository.
 
-Once the git repository has been cloned and located, and blender has been installed, you must run blender to automatically run a python file [launchblend.py][src/launchblend.py]. This is typically done with the blender command, but depending on your software may be subject to change
+Once the git repository has been cloned and located, and blender has been installed, you must run blender to automatically run a python file ([launchblend.py](src/launchblend.py)). This is typically done with the blender command, but depending on your software may be subject to change
 
 ```
 blender -P /path/to/repo/src/launchblend.py

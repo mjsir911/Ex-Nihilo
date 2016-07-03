@@ -6,7 +6,7 @@ let dVars = {
  \"license" : "GPL 3.0", 
  \"version" : "0.3.0", 
  \"maintainer" : name,
- \"email" : 'msirael@gmail.com', 
+ \"email" : 'msirabel@gmail.com', 
  \"status" : "Prototype", 
  \"module" : ""}
 

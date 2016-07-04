@@ -17,7 +17,7 @@ __credits__    = ["Marco Sirabella"]  # Authors and bug reporters
 __license__    = "GPL 3.0"
 __version__    = "0.3.0"
 __maintainer__ = "Marco Sirabella"
-__email__      = "msirael@gmail.com"
+__email__      = "msirabel@gmail.com"
 __status__     = "Prototype"
 __module__     = ""
 
@@ -60,19 +60,25 @@ def orbit(name, rev, porbits, orbitdistort=250, detail=25, dist=2):
 
     print('kdtree created')
     for circle in porbits:
-        #print("checking range")
-        for x in range(0, detail):
-            if kd.find_range(
-                shapes.mission1(circle, random.uniform(-1, 3)), dist
-            ):
-                print("too close")
-                orbit.select = True
-                bpy.ops.object.delete()
-                return None, None
-                print("youshouldntbehere.gif")
+        if circle.type == 'CURVE':
+            print("checking range")
+            for x in range(0, detail):
+                if kd.find_range(
+                    shapes.mission1(circle, random.uniform(-1, 3)), dist
+                ):
+                    print("too close")
+                    orbit.select = True
+                    bpy.ops.object.delete()
+                    return None, None
+                    print("youshouldntbehere.gif")
 
     # Create core
     core = bpy.data.objects.new('{0}_core'.format(name), None)
+
+    # Parent to orbit
+    core.select = True
+    orbit.select = True
+    bpy.ops.object.parent_set()
     core.constraints.new('FOLLOW_PATH')
     core.constraints['Follow Path'].target = orbit
     core.constraints['Follow Path'].offset = rev

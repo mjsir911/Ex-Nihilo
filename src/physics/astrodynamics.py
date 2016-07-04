@@ -39,10 +39,13 @@ def generate_masse(
 ):
     porbits = []
     x = 0
-    while len(porbits) < orbital_amount:
-        x += 1
+    while len(porbits) < orbital_amount and x < orbital_amount:
         core, orbit = generate(porbits=porbits, orbital_detailWIP=detail, distance_range=dist)
+        # porbits.append(orbit)
         if orbit:
+            x += 1
             porbits.append(orbit)
-        if x > 100:
-            break
+        #if x > 100:
+        x += 0.1
+        #    break
+    print(porbits)

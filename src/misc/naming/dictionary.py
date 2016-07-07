@@ -46,4 +46,4 @@ syllables_temp = []
 #            else:
 #                syllables_temp.append(o + n)
 
-syllables = list([o+s+c for o in dictionary.onset for s in dictionary.nucleus for c in dictionary.coda])
+syllables = list([o+s+c for o in onset for s in nucleus for c in coda])

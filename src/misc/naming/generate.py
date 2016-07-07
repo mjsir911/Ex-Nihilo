@@ -15,7 +15,7 @@ __email__      = "msirabel@gmail.com"
 __status__     = "Prototype"
 __module__     = ""
 
-def generatea(length=None):
+def generate_sound(length=None):
     if length:
         pass
     else:
@@ -23,20 +23,20 @@ def generatea(length=None):
     name = ""
     y = None
     for x in range(0, length):
-        if y == "vowel" or y == None:
+        if y == "nucleus" or y == None:
             if random.random() > 0.25:
                 name += dictionary.constonants[random.randrange(0, len(dictionary.constonants))]
                 y = "constonant"
             else:
-                name += dictionary.vowels[random.randrange(0, len(dictionary.vowels))]
-                y = "vowel"
+                name += dictionary.nucleus[random.randrange(0, len(dictionary.nucleus))]
+                y = "nucleus"
         else:
-            name += dictionary.vowels[random.randrange(0, len(dictionary.vowels))]
-            y = "vowel"
+            name += dictionary.nucleus[random.randrange(0, len(dictionary.nucleus))]
+            y = "nucleus"
     return(name)
 
 
-def generate_advanced(length=None):
+def generate_syllabic(length=None):
     if length:
         pass
     else:

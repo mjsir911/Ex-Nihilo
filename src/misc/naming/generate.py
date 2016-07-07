@@ -15,8 +15,11 @@ __email__      = "msirabel@gmail.com"
 __status__     = "Prototype"
 __module__     = ""
 
-def generate():
-    length = random.randrange(2,10)
+def generatea(length=None):
+    if length:
+        pass
+    else:
+        length = random.randrange(2,10)
     name = ""
     y = None
     for x in range(0, length):
@@ -31,3 +34,14 @@ def generate():
             name += dictionary.vowels[random.randrange(0, len(dictionary.vowels))]
             y = "vowel"
     return(name)
+
+
+def generate_advanced(length=None):
+    if length:
+        pass
+    else:
+        length = random.randrange(1,4)
+    name = ""
+    for x in range(0, length):
+        name += dictionary.syllables[random.randrange(0, len(dictionary.syllables))]
+    return name

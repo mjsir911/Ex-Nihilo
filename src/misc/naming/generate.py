@@ -25,8 +25,8 @@ def generate_sound(length=None):
     for x in range(0, length):
         if y == "nucleus" or y == None:
             if random.random() > 0.25:
-                name += dictionary.constonants[random.randrange(0, len(dictionary.constonants))]
-                y = "constonant"
+                name += dictionary.consonants[random.randrange(0, len(dictionary.consonants))]
+                y = "consonant"
             else:
                 name += dictionary.nucleus[random.randrange(0, len(dictionary.nucleus))]
                 y = "nucleus"

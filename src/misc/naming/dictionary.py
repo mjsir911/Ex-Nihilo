@@ -44,7 +44,7 @@ coda = list(
             'rc', 'rn', 'mb', 'gh',])
 )
 
-constonants = list(onset + coda)
+consonants = list(onset + coda)
 #syllables_temp = []
 #
 #for o in onset:

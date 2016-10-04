@@ -2,6 +2,10 @@
 
 **Ex Nihilo** is an open source software library for procedurally generating star systems and the planets inside using randomly generated seeds or a user-defined seed. 
 
+## Note
+--------
+This branch will probably work, but it doesn't work very well, it is being reworked in branch [revamped](https://github.com/mjsir911/Ex-Nihilo/tree/revamped)
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.

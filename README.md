@@ -32,57 +32,57 @@ import src
 
 After the instructions above have been followed, blender will freeze up for a time depending on the randomly generated seed due to a large amount of computations. After the computations have been made the objects have been generated and one will see the generated objects on the 3D portion of the screen
 
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
-## Built With
-
-* Dropwizard - Bla bla bla
-* Maven - Maybe
-* Atom - ergaerga
-
-## Contributing
-
-Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
-
-## Authors
-
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone who's code was used
-* Inspiration
-* etc
-
+[comment]: <> (## Running the tests)
+[comment]: <> ()
+[comment]: <> (Explain how to run the automated tests for this system)
+[comment]: <> ()
+[comment]: <> (### Break down into end to end tests)
+[comment]: <> ()
+[comment]: <> (Explain what these tests test and why)
+[comment]: <> ()
+[comment]: <> (```)
+[comment]: <> (Give an example)
+[comment]: <> (```)
+[comment]: <> ()
+[comment]: <> (### And coding style tests)
+[comment]: <> ()
+[comment]: <> (Explain what these tests test and why)
+[comment]: <> ()
+[comment]: <> (```)
+[comment]: <> (Give an example)
+[comment]: <> (```)
+[comment]: <> ()
+[comment]: <> (## Deployment)
+[comment]: <> ()
+[comment]: <> (Add additional notes about how to deploy this on a live system)
+[comment]: <> ()
+[comment]: <> (## Built With)
+[comment]: <> ()
+[comment]: <> (* Dropwizard - Bla bla bla)
+[comment]: <> (* Maven - Maybe)
+[comment]: <> (* Atom - ergaerga)
+[comment]: <> ()
+[comment]: <> (## Contributing)
+[comment]: <> ()
+[comment]: <> (Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.)
+[comment]: <> ()
+[comment]: <> (## Versioning)
+[comment]: <> ()
+[comment]: <> (We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). )
+[comment]: <> ()
+[comment]: <> (## Authors)
+[comment]: <> ()
+[comment]: <> (* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth))
+[comment]: <> ()
+[comment]: <> (See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.)
+[comment]: <> ()
+[comment]: <> (## License)
+[comment]: <> ()
+[comment]: <> (This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details)
+[comment]: <> ()
+[comment]: <> (## Acknowledgments)
+[comment]: <> ()
+[comment]: <> (* Hat tip to anyone who's code was used)
+[comment]: <> (* Inspiration)
+[comment]: <> (* etc)
+[comment]: <> ()

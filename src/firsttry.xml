@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system>
+  <age>5</age>
+  <size>large</large>
+  <num>1</num>
+  <planet name="Erf">
+    <type>Terrestrial</type>
+    <size>3</size> 
+    <orbit>x^2 + y^2 = 3</orbit>
+    <tectonic/>
+    <atmosphere>
+      <mass>1</mass>
+      <composition>
+        <molecule>
+          <element subscript="2">Oxygen</element>
+          <percentage>17.6</percentage>
+        </molecule>
+        <molecule>
+          <element subscript="1">Carbon</element>
+          <element subscript="2">Oxygen</element>
+          <percentage>13</percentage>
+        </molecule>
+        <molecule>
+          <element subscript="2">Nitrogen</element>
+          <percentage>75</percentage>
+        </molecule>
+      </composition>
+    </atmosphere>
+    <interior>
+      <mass>100</mass>
+      <crust>
+        <percentage>3</percentage>
+        <molecule>
+          <element subscript="1">Oxygen</element>
+          <percentage>47</percentage>
+        </molecule>
+        <molecule>
+          <element subscript="1">Silicon</element>
+          <percentage>27</percentage>
+        </molecule>
+        <molecule>
+          <element subscript="1">Aluminum</element>
+          <percentage>8</percentage>
+        </molecule>
+        <molecule>
+          <element subscript="1">iron</element>
+          <percentage>5</percentage>
+        </molecule>
+        <molecule>
+          <element subscript="1">calcium</element>
+          <percentage>4</percentage>
+        </molecule>
+      </crust>
+      <mantle>
+        <percentage>75</percentage>
+        <composition>
+          <molecule>
+            <element subscript="1">Iron</element>
+            <percentage>68</percentage>
+          </molecule>
+          <molecule>
+            <element subscript="1">Magnesium</element>
+            <percentage>12</percentage>
+          </molecule>
+        </compositions>
+      </mantle>
+      <core>
+        <percentage>22</percentage>
+        <molecule>
+          <element subscript="1">Iron</element>
+          <percentage>100</percentage>
+        </molecule>
+      </core>
+    </interior>
+  </planet>
+
+  <planet name="Mers">
+    <type>
+      Terrestrial
+    </type>
+  </planet>
+</system>

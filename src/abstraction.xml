@@ -4,11 +4,15 @@
   <size>large</large>
   <num>1</num>
   <planet name="Erf">
-    <type>Terrestrial</type>
-    <size>3</size> 
-    <orbit>x^2 + y^2 = 3</orbit>
-    <tectonic/>
+    <!-- An detailed example of a planet -->
+    <type><!-- Terrestrial or Jovian. Any more? -->Terrestrial</type>
+    <size><!-- Arbitrary? -->3</size> 
+    <orbit><!-- This needs some work -->x^2 + y^2 = 3</orbit>
+    <tectonic>
+      <!-- Equations modelling continents + drift -->
+    </tectonics>
     <atmosphere>
+      <!-- The stuff above a planet's surface -->
       <mass>1</mass>
       <composition>
         <molecule>
@@ -27,6 +31,7 @@
       </composition>
     </atmosphere>
     <interior>
+      <!-- Everything about a planet except atmosphere -->
       <mass>100</mass>
       <crust>
         <percentage>3</percentage>

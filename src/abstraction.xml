@@ -9,6 +9,8 @@
     <size><!-- Arbitrary? -->3</size> 
     <orbit>
       <!-- This needs some work -->
+      <!--
+           |_frac_{{({({x-h})cos({A})+({y-k})sin({A})})^{2}};{({a^{2}})}}+|_frac_{{({({x-h})sin({A})-({y-k})cos({A})})^{2}};{({b^{2}})}}=1 -->
       <A>0</A>
       <b>0</b>
       <a>0</a>

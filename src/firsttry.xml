@@ -43,11 +43,11 @@
           <percentage>8</percentage>
         </molecule>
         <molecule>
-          <element subscript="1">iron</element>
+          <element subscript="1">Iron</element>
           <percentage>5</percentage>
         </molecule>
         <molecule>
-          <element subscript="1">calcium</element>
+          <element subscript="1">Calcium</element>
           <percentage>4</percentage>
         </molecule>
       </crust>

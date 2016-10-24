@@ -7,7 +7,12 @@
     <!-- An detailed example of a planet -->
     <type><!-- Terrestrial or Jovian. Any more? -->Terrestrial</type>
     <size><!-- Arbitrary? -->3</size> 
-    <orbit><!-- This needs some work -->x^2 + y^2 = 3</orbit>
+    <orbit>
+      <!-- This needs some work -->
+      <A>0</A>
+      <b>0</b>
+      <a>0</a>
+    </orbit>
     <tectonic>
       <!-- Equations modelling continents + drift -->
     </tectonics>
